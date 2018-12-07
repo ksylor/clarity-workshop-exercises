@@ -17,15 +17,19 @@ Also make sure that you have a Github.com account!
 ## Create a new repo
 Next, let's go through the steps to create a new repo in the command line, then push that repo up to Github.
 
-1. Create a new folder on your laptop to store your new design system files, call it whatever you want, but use dashes or underscores instead of space. Create some placeholder files in the new folder, they can be just empty text files and named whatever you'd like. 
+1. Create a new folder on your laptop to store your new design system files, call it whatever you want, but use dashes or underscores instead of spaces. Create some placeholder files in the new folder, they can be just empty text files and named whatever you'd like. 
 
-2. Copy the path to the new folder that you created. 
+2. Copy the path to the new folder that you created (lmk if you need help figuring that out!). 
 
 3. Pop open your favorite terminal or command line program and move into your new folder with the command `cd path/to/folder`
 
 4. Confirm that you are in the correct folder using the command `pwd` on a mac or `cd` (no arguments) on windows. Then confirm that you have some files in there using the `ls` command on mac or `dir` on windows.
 
-5. Initialize a new repository using the command `git init`. You should see the the output `Initialized empty Git repository in /path/to/folder/.git/`
+5. Initialize a new repository using the command `git init`. You should see the the output:
+
+```
+Initialized empty Git repository in /path/to/folder/.git/
+```
 
 6. Run the command `git add .` to add the new files to staging (we'll go over this in more detail later today).
 
@@ -49,7 +53,7 @@ Next, let's go through the steps to create a new repo in the command line, then 
 
 3. In the form that opens, enter the project name - for your future sanity, use the same folder name that you created above.
 
-4. Leave everything else as-is - don't create a README or add gitignore or license files, and click the "Create Repository" button.
+4. Leave everything else as-is - don't create a README or add gitignore or license files, and click the "Create Repository" button. (image)
 
 5. In the next page, copy the url from the section labeled "Quick Setup" (image)
 
@@ -58,6 +62,7 @@ Next, let's go through the steps to create a new repo in the command line, then 
 7. Run the command `git remote -v` to confirm that the remote is set up correctly. You should see the url repeated twice.
 
 8. Now push up your new repo's contents by running `git push -u remote origin` this will set the `master` branch in the remote repository named `origin` as the upstream tracking branch for your local master. We'll dig into what this means later in the day! You should see output similar to this:
+
 ```
 Counting objects: 3, done.
 Delta compression using up to 8 threads.
@@ -87,7 +92,7 @@ Let's practice copying a remote repository to your local machine.
 
 2. Go to the example repo's homepage at https://github.com/ksylor/clarity-workshop-example
 
-3. Click the green "Clone or Download" button. In the dropdown, click the icon to copy the https clone URL. 
+3. Click the green "Clone or Download" button. In the dropdown, click the icon to copy the https clone URL. (image)
 
 4. In the command line, run `git clone <copied url>`. You should see the output:
 
