@@ -80,6 +80,8 @@ Now let's add a commit to our master branch and see how these refs change!
 
 6. Run `cat .git/refs/heads/new-branch-name` and then `cat .git/refs/heads/master` to confirm that indeed, each branch now has a different commmit at it's tip. 
 
+**Pro tip:** You can both create _and_ checkout a branch at the same time using the command `git checkout -b new-branch-name`. Isn't it awesome that git is so consistent in its command names? So intuitive, right? `</sarcasm>`
+
 _Bonus extra work:_ Run the command `git branch` with no arguments to see what it outputs. How do you think this command works under the hood? 
 
 
