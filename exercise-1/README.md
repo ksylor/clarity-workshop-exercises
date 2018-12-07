@@ -17,7 +17,7 @@ Also make sure that you have a Github.com account!
 ## Create a new repo
 Next, let's go through the steps to create a new repo in the command line, then push that repo up to Github.
 
-1. Create a new folder on your laptop, call it whatever you want! Create some files in the new folder, they can be empty and named whatever you'd like. 
+1. Create a new folder on your laptop to store your new design system files, call it whatever you want, but use dashes or underscores instead of space. Create some placeholder files in the new folder, they can be just empty text files and named whatever you'd like. 
 
 2. Copy the path to the new folder that you created. 
 
@@ -30,6 +30,7 @@ Next, let's go through the steps to create a new repo in the command line, then 
 6. Run the command `git add .` to add the new files to staging (we'll go over this in more detail later today).
 
 7. Create the first commit in your repository using the command `git commit -m "Your text here"`. You should see output similar to this but with your file names:
+
 ```
 [master (root-commit) 50e92cc] initial commit, hooray
  3 files changed, 0 insertions(+), 0 deletions(-)
