@@ -48,7 +48,7 @@ Next, let's go through the steps to create a new repo in the command line, then 
 
 3. In the form that opens, enter the project name - for your future sanity, use the same folder name that you created above.
 
-4. Leave everything else as-is - don't create a README or add gitignore or license files, and click the "Create Repository" button. (image)
+4. Leave everything else as-is - don't create a README or add gitignore or license files, and click the "Create Repository" button.
 
 5. In the next page, copy the url from the section labeled "Quick Setup" (image)
 
