@@ -33,7 +33,7 @@ PS1="$GREEN\u@\h$NO_COLOR:\w$YELLOW\$(parse_git_branch)$NO_COLOR\$ "
 
 6. Tell vim that you want to **write** the contents of the file (e.g. save the changes you made), then **quit** the program by typing `w` then `q` then hit `enter` to execute the commands.
 
-**Woooo! you successfully quit out of vim!**
+**[Woooo! you successfully quit out of vim!](https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/)**
 
 7. Now we need to tell your current shell session that we want to run and use that command. we do that with the command `source ~/.bash_profile`
 
