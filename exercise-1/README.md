@@ -82,7 +82,9 @@ Branch master set up to track remote branch master from origin.
 
 **Congratulations! You shared your git repo with the world!**
 
-_Bonus extra work:_ Add a README.md file to your repo to describe it's purpose.
+_Bonus extra work:_ 
+1. Add a README.md file to your repo to describe it's purpose.
+2. Go and explore the different tabs in the repo homepage on Github (e.g. visit the Code, Issues, Pull Requests, Projects, Wiki, etc. tabs)
 
 ## Clone the example repo
 
