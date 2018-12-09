@@ -105,23 +105,23 @@ Your branch is up-to-date with 'origin/master'.
 nothing to commit, working tree clean
 ```
 
-## Merge vs Rebase Commits
+## Merge vs Rebase
 
 Now we'll practice making merge and rebase commits.
 
-1. First, we need to create a conflict. Open up your fork of the example repo in github.com
+1. First, we need to create a conflict, so let's edit the remote master branch directly in the Github UI. Open up the repo you created in github.com.
 
-2. Click on `fun.txt` and click the pencil icon to edit it
+2. Click on one of your files, and click the pencil icon to edit it.
 
-3. Change some text in the file. Enter "Their changes" as the commit message, select "Commit directly to the `master` branch", and click "Commit changes"
+3. Change some text in the file. Then, in the "Commit Changes" box below the text editor, enter "Their changes" as the commit message. Select "Commit directly to the `master` branch", and click "Commit changes". (image)
 
-4. Go back to your example repo in your terminal. _Do not `git pull` or `git fetch` yet_. Make sure you have the `master` branch checked out.
+4. Go back to your repo in your terminal. _Do not `git pull` or `git fetch` yet_. Make sure you have the `master` branch checked out.
 
-5. Open up `more-fun.txt` in vim by typing the command `vim more-fun.txt`.
+5. Open up a different file than the one you edited in Github using Vim.
 
 6. Change the contents of `more-fun.txt`. Refer to the earlier exercise if you've forgotten the vim hotkeys.
 
-7. Stage, then commit your changes to `more-fun.txt`. That is, `git add more-fun.txt` and `git commit -m "My changes"`.
+7. Stage, then commit your changes with the message "My changes". (Tip: You can stage and commit in the same command using `git commit -am "My changes"`, but use that command wisely!)
 
 8. Run `git status`. You should see something like:
 ```
@@ -132,9 +132,9 @@ Your branch is ahead of 'origin/master' by 1 commit.
 nothing to commit, working tree clean
 ```
 
-9. As you can see, git thinks that we can fast-forward, but that's because git doesn't know about the conflicting changes on github yet.
+9. As you can see, git _thinks_ that we can fast-forward, but that's wrong, because git doesn't know about the conflicting changes on github yet.
 
-10. Run `git fetch`, then `git status`. You should now see something like:
+10. Run `git fetch` to update your `origin/master` tracking branch, then `git status`. You should now see something like:
 ```
 On branch master
 Your branch and 'origin/master' have diverged,
@@ -156,36 +156,43 @@ hint: 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
 
-12. Now we'll resolve this the ugly way -- with a merge commit. Run the suggested `git pull`, which if you recall, is equivalent to `git fetch && git merge`. You'll get a vim editor with the commit message "Merge branch 'master' of github.com:ben-ng/clarity-workshop-example". Approve it with `:x`. You'll see something like this:
+12. Now we'll resolve this the ugly way -- with a merge commit. Run git's suggested command `git pull`, which if you recall, is equivalent to `git fetch && git merge`. 
+
+13. You'll get a vim editor with a pre-filled commit message `"Merge branch 'master' of <your branch>"`. Approve this message by saving & writing it back to git with the command `:x` (which is shorthand for `:wq`). You'll see something like this:
+
 ```
 Merge made by the 'recursive' strategy.
  fun.txt | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
-13. Take a look at the last three commits with `git log -3`. You'll see our merge commit, and its two parent commits in the `Merge: 1783994 ac38953` line:
+14. Take a look at the last three commits with `git log --graph -3`. The `--graph` flag wil show us a visual indicator of the connections between commits (we'll talk some more about git log in the section on viewing and changing history!). 
+
+You'll see our merge commit, and its two parent commits in the `Merge: 785f968 daad8d8` line:
 ```
-commit 61fde39511154b9f6324f960ada730bfcb0dcb1d (HEAD -> master)
-Merge: 1783994 ac38953
-Author: Ben Ng <me@benng.me>
-Date:   Sun Dec 9 13:36:14 2018 -0500
-
-    Merge branch 'master' of github.com:ben-ng/clarity-workshop-example
-
-commit 17839947c614dcf30740ebb45dbc572bb6666556
-Author: Ben Ng <me@benng.me>
-Date:   Sun Dec 9 13:34:17 2018 -0500
-
-    Our changes
-
-commit ac389533738c9965a37ded0613ffa5295cfb7505 (origin/master, origin/HEAD)
-Author: Ben Ng <me@benng.me>
-Date:   Sun Dec 9 13:22:06 2018 -0500
-
-    Their changes
+*   commit 6622eb5f8a7f10083654f5f5b45cf8d8e0f430fc (HEAD -> master)
+|\  Merge: 785f968 daad8d8
+| | Author: Katie Sylor-Miller <ksylormiller@etsy.com>
+| | Date:   Sun Dec 9 18:00:08 2018 -0500
+| |
+| |     :Merge branch 'master' of https://github.com/ksylor/clarity-workshop-example
+| |
+| * commit daad8d877915f029f18f3fdd9d3ba6fa60e2f261 (origin/master)
+| | Author: Katie Sylor-Miller <ksylor@post.harvard.edu>
+| | Date:   Sun Dec 9 17:58:49 2018 -0500
+| |
+| |     Their changes
+| |
+* | commit 785f9687b40037ff9e35e7220ad7a3d7587a6a78
+|/  Author: Katie Sylor-Miller <ksylormiller@etsy.com>
+|   Date:   Sun Dec 9 17:59:49 2018 -0500
+|
+|       my local changes
 ```
 
-14. Now let's undo this merge operation with `git reset --hard ORIG_HEAD`. Verify with `git log` and `git status` that it worked:
+Grosssssss right?
+
+15. Now let's undo this merge operation with `git reset --hard ORIG_HEAD` (We'll cover resetting more shortly, suffice to say, this is saying we want to reset our master back to how it was before we merged). Verify with `git log` and `git status` that it worked:
 ```
 On branch master
 Your branch and 'origin/master' have diverged,
@@ -195,28 +202,34 @@ and have 1 and 1 different commits each, respectively.
 nothing to commit, working tree clean
 ```
 
-15. This time, we'll resolve the conflict by rebasing. Run `git pull --rebase`, and you'll see something like this:
+16. This time, we'll resolve the conflict by rebasing. Run `git pull --rebase`, and you'll see something like this:
 ```
 First, rewinding head to replay your work on top of it...
-Applying: Our changes
+Applying: My changes
 ```
 
-16. This time, if you take a look at `git log -3`, you'll only see `Our Changes` and `Their Changes`. No more nasty merge commit!
+17. This time, if you take a look at `git log --graph -3`, you'll only see `My Changes` and `Their Changes` with a nice straight line connecting them. No more nasty merge commit!
 ```
-commit bcdc48757175ebcfc96baf4fe460df2252f33eff (HEAD -> master)
-Author: Ben Ng <me@benng.me>
-Date:   Sun Dec 9 13:34:17 2018 -0500
-
-    Our changes
-
-commit ac389533738c9965a37ded0613ffa5295cfb7505 (origin/master, origin/HEAD)
-Author: Ben Ng <me@benng.me>
-Date:   Sun Dec 9 13:22:06 2018 -0500
-
-    Their changes
+* commit 09a1663975fba8a6bdcc3e2316848a4f118e742d (HEAD -> master)
+| Author: Katie Sylor-Miller <ksylormiller@etsy.com>
+| Date:   Sun Dec 9 17:59:49 2018 -0500
+|
+|     My changes
+|
+* commit daad8d877915f029f18f3fdd9d3ba6fa60e2f261 (origin/master)
+| Author: Katie Sylor-Miller <ksylor@post.harvard.edu>
+| Date:   Sun Dec 9 17:58:49 2018 -0500
+|
+|     Their changes
+|
+* commit 39b50afeb8e954421105bff3cf1fbeff570fa804
+| Author: Katie Sylor-Miller <ksylormiller@etsy.com>
+| Date:   Sun Dec 9 11:50:58 2018 -0500
+|
+|     more changes
 ```
 
-17. `git status` will report that you can now fast-forward on `git push`:
+17. `git status` will report that you are "ahead" of `origin/master` which means you can now fast-forward:
 ```
 On branch master
 Your branch is ahead of 'origin/master' by 1 commit.
@@ -244,3 +257,5 @@ Your branch is up to date with 'origin/master'.
 
 nothing to commit, working tree clean
 ```
+
+**Congratulations! You are well on your way to Git mastery!**
