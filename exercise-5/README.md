@@ -21,7 +21,7 @@ Use the up and down arrows to scroll through the log output. Type `q` to quit ou
 
 3. Now let's search the logs. We can search by Author (although in this case the output will be everything since you've made all the commits!) 
 ```
-git log author="Katie" (or replace with your name!)
+git log --author="Katie" (or replace with your name!)
 ```
 Another super useful way to search logs is by commit message using the `--grep` flag (grep is a search command from bash). 
 ```
