@@ -17,7 +17,7 @@ Date:   Sun Dec 9 17:59:49 2018 -0500
 ```
 Use the up and down arrows to scroll through the log output. Type `q` to quit out of the log view.
 
-2. Let's try using some other formats to see different information in the log. Run the command `git log --oneline` to see a shorter format for each log line. You can also do `git log pretty=<format>`, where you replace `<format>` with one listed here: https://git-scm.com/docs/pretty-formats. 
+2. Let's try using some other formats to see different information in the log. Run the command `git log --oneline` to see a shorter format for each log line. You can also do `git log --pretty=<format>`, where you replace `<format>` with one listed here: https://git-scm.com/docs/pretty-formats. 
 
 3. Now let's search the logs. We can search by Author (although in this case the output will be everything since you've made all the commits!) 
 ```
