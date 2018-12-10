@@ -10,11 +10,13 @@ We can customize our bash environment to do all kinds of cool stuff using what's
 
 1. In the command line, run the command `vim ~/.bash_profile`. This will either open the existing file in the Vim editor, or it will create the file if it doesn't exist. Vim is super confusing if you've never used it before, but we can get through this!
 
-2. When Vim opens a new file, it starts in a read-only mode. You cannot modify the file, only look at it. Hit the `I` key to enter vim's `insert` mode. This will allow you to enter text. You will see `-- INSERT --` at the bottom of the window. (image)
+2. When Vim opens a new file, it starts in a read-only mode. You cannot modify the file, only look at it. Hit the `I` key to enter vim's `insert` mode. This will allow you to enter text. You will see `-- INSERT --` at the bottom of the window. 
 
-3. Copy/paste the following block of code into the bash_profile file. If you already have stuff in your bash_profile, use the down arrow key until you are at the end of that text, then hit enter to move onto a new line before you paste. 
+![repo url](../images/vim-insert-mode.jpg)
 
-```
+3. Copy/paste the following block of code into the bash_profile file. If you already have stuff in your bash_profile, use the down arrow and right arrow keys until you are at the end of that text, then hit enter to move onto a new line before you paste. 
+
+```bash
 function parse_git_branch () {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -57,7 +59,7 @@ Now let's add a commit to our master branch and see how these refs change!
 
 3. Run `git commit -m "Your message goes here"` to save those changes as a new commit. You should see something along the lines of the output:
 
-```
+```bash
 [master <first 7 digits of new hash>] Your message goes here
  1 file changed, 1 insertion(+)
  ```
