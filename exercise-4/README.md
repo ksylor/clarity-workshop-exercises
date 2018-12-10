@@ -11,15 +11,19 @@ feature-branch
 * master
 ```
 
-2. If you've followed along with the exercises, this branch should be a few commits behind master, and should have a unique commit of it's own. If you aren't sure, you can make a change to any file and commit that, or, to check that your feature branch has unique commits, run the following command with "feature-branch" replaced with your branch name `git log "$(git merge-base feature-branch master)"..HEAD`. If there is no output from this command, then you need to make a new commit. (This is a pretty advanced command, can you guess what it might be doing?)
+2. If you've followed along with the exercises, this branch should be a few commits behind master, and should have a unique commit of it's own. If you aren't sure, you can make a change to any file and commit that. 
 
-3. Run `git push -u` to push your feature branch up to the remote origin (aka Github.com) and set up that branch as your remote tracking bran
+_Extra bonus work:_ If you want to do some fun advanced stuff to check if your feature branch has commits that are not in master, run the following command `git log "$(git merge-base <branch name> master)"..HEAD` (replace `<branch name>` with the correct branch name). If there is no output from this command, then you need to make a new commit. (This is a pretty advanced command, can you guess what it might be doing?)
+
+3. Run `git push -u` to push your feature branch up to the remote origin (aka Github.com) and set up that branch as your remote tracking branch
 
 4. Go to your repo's homepage in Github.com (refresh the page if you already have it open). Git should show you a yellow alert bar that asks if you want to create a new pull request with the branch you just pushed. Click the "Compare and pull request" button to create a new PR.
 
+![create pr button](../images/create-pr-button.jpg)
+
 5. Enter a title and a description for your PR and click the "Create pull request" button. 
 
-** Congratulations your made your first PR!**
+**Congratulations your made your first PR!**
 
 ## Comment on your PR
 
@@ -31,7 +35,13 @@ feature-branch
 
 4. Add another comment to a different line or a different file. (If you only have one line to comment on, that's okay!, practice adding a follow-up comment). Click "Add review comment" if applicable, the "Review changes" badge should go up by one.
 
-5. Click the "Review changes" button to finalize your review. Since you are the owner of the PR, you can only choose "Comment" as your review type, but take a look at the other options to get familiar with them. Add an overall comment into the box if you'd like, then click "Submit review" to make your comments. Note that you can add a comment or approve/ask for changes via the "Submit review" button without having to comment on a line of the code. 
+5. Click the "Review changes" button to finalize your review. 
+
+![create pr button](../images/review-changes.jpg)
+
+Since you are the owner of the PR, you can only choose "Comment" as your review type, but take a look at the other options to get familiar with them. Add an overall comment into the box if you'd like, then click "Submit review" to make your comments. 
+
+Note that you can perform any actions in the "Submit review" button without having to comment on a line of the code! 
 
 ## Merge your branch into master
 
