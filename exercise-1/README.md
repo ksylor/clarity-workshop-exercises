@@ -53,9 +53,13 @@ Initialized empty Git repository in /path/to/folder/.git/
 
 3. In the form that opens, enter the project name - for your future sanity, use the same folder name that you created above.
 
-4. Leave everything else as-is - don't create a README or add gitignore or license files, and click the "Create Repository" button. (image)
+4. Leave everything else as-is - don't create a README or add gitignore or license files, and click the "Create Repository" button. 
 
-5. In the next page, copy the url from the section labeled "Quick Setup" (image)
+![create repository button](../images/new-repo.jpg)
+
+5. In the next page, copy the url from the section labeled "Quick Setup".
+
+![repo url](../images/repo-url-clone.jpg)
 
 6. Open up the command line again, and run the command `git remote add origin <url you copied>` the url should look something like `https://github.com/<username>/<reponame>.git`. This will set the remote repo that you just created as the remote repo named `origin`.
 
@@ -94,7 +98,9 @@ Let's practice copying a remote repository to your local machine.
 
 2. Go to the example repo's homepage at https://github.com/ksylor/clarity-workshop-example
 
-3. Click the green "Clone or Download" button. In the dropdown, click the icon to copy the https clone URL. (image)
+3. Click the green "Clone or Download" button. In the dropdown, click the icon to copy the https clone URL.
+
+![clone or download url](../images/clone-or-download.jpg)
 
 4. In the command line, run `git clone <copied url>`. You should see the output:
 
