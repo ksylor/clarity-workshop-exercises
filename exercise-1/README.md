@@ -65,7 +65,7 @@ Initialized empty Git repository in /path/to/folder/.git/
 
 7. Run the command `git remote -v` to confirm that the remote is set up correctly. You should see the url repeated twice.
 
-8. Now push up your new repo's contents by running `git push -u remote origin` this will set the `master` branch in the remote repository named `origin` as the upstream tracking branch for your local master. We'll dig into what this means later in the day! You should see output similar to this:
+8. Now push up your new repo's contents by running `git push -u remote master` this will set the `master` branch in the remote repository named `origin` as the upstream tracking branch for your local master. We'll dig into what this means later in the day! You should see output similar to this:
 
 ```
 Counting objects: 3, done.
